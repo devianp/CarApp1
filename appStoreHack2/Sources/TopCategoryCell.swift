@@ -63,7 +63,9 @@ class TopCategoryCell: UICollectionViewCell  {
 
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[nameLabel(30)][v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": carsCollectionView, "nameLabel": nameLabel]))
 
-        pageControl.anchorToTop(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
+        pageControl.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        pageControl.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        pageControl.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
