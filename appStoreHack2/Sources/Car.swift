@@ -1,9 +1,6 @@
 
-import Foundation
-
-class Car: NSObject {
-    var name: String?
-    var id: NSNumber?
-    var category: String?
-    var imageName: String?
+struct Car {
+    let name: String
+    let category: String
+    let imageName: String
 }

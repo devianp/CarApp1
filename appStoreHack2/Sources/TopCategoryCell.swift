@@ -2,104 +2,63 @@
 import UIKit
 
 class TopCategoryCell: UICollectionViewCell  {
-    
-    var featuredCarsController: FeaturedCarsController?
 
     var carCategory: CarCategory? {
         didSet {
-            if let name = carCategory?.name {
-                nameLabel.text = name
-            }
+            self.nameLabel.text = self.carCategory?.name
+            self.pageControl.numberOfPages = self.carCategory?.cars.count ?? 0
         }
     }
 
-    private let topCellId = "carCellId"
-
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Test"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    let carsCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .clear
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        layout.scrollDirection = .horizontal
-        collectionView.isPagingEnabled = true
-        layout.minimumLineSpacing = 0
-        return collectionView
-    }()
-
-    lazy var pageControl: UIPageControl = {
-        let pc = UIPageControl()
-        pc.pageIndicatorTintColor = .gray
-        pc.currentPageIndicatorTintColor = UIColor(red: 247/255, green: 154/255, blue: 27/255, alpha: 1)
-        pc.numberOfPages = 8
-        return pc
-    }()
+    private let nameLabel: UILabel
+    let carsCollectionView: UICollectionView
+    let pageControl: UIPageControl
 
     override init(frame: CGRect) {
+        self.nameLabel = UILabel(frame: .zero)
+        self.nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.nameLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+
+        self.carsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        self.carsCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.carsCollectionView.showsHorizontalScrollIndicator = false
+        self.carsCollectionView.backgroundColor = .clear
+        self.carsCollectionView.isPagingEnabled = true
+
+        self.pageControl = UIPageControl(frame: .zero)
+        self.pageControl.translatesAutoresizingMaskIntoConstraints = false
+        self.pageControl.currentPageIndicatorTintColor = UIColor(red: 247/255, green: 154/255, blue: 27/255, alpha: 1)
+        self.pageControl.pageIndicatorTintColor = .gray
+
         super.init(frame: frame)
 
-        backgroundColor = UIColor(white: 0.9, alpha: 0.4)
+        self.backgroundColor = UIColor(white: 0.9, alpha: 0.4)
 
-        addSubview(carsCollectionView)
-        addSubview(nameLabel)
+        self.contentView.addSubview(self.nameLabel)
+        self.contentView.addSubview(self.carsCollectionView)
+        self.contentView.addSubview(self.pageControl)
 
-        addSubview(pageControl)
+        NSLayoutConstraint.activate([
+            self.nameLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            self.nameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 14.0),
+            self.nameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            self.nameLabel.heightAnchor.constraint(equalToConstant: 30.0),
 
-        carsCollectionView.dataSource = self
-        carsCollectionView.delegate = self
+            self.carsCollectionView.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor),
+            self.carsCollectionView.bottomAnchor.constraint(equalTo: self.pageControl.topAnchor),
+            self.carsCollectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            self.carsCollectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
 
-        carsCollectionView.register(TopCarCell.self, forCellWithReuseIdentifier: topCellId)
-
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-14-[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
-
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": carsCollectionView]))
-
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[nameLabel(30)][v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": carsCollectionView, "nameLabel": nameLabel]))
-
-        pageControl.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        pageControl.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        pageControl.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+            self.pageControl.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            self.pageControl.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            self.pageControl.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+            ])
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
-    }
-}
-
-extension TopCategoryCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let count = carCategory?.cars?.count {
-            return count
-        }
-        return 0
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: topCellId, for: indexPath) as! TopCarCell
-        cell.car = carCategory?.cars?[indexPath.item]
-        return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width, height: frame.height - 30)
-    }
-
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let pageNumber = Int(targetContentOffset.pointee.x / frame.width)
-        pageControl.currentPage = pageNumber
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let car = carCategory?.cars?[indexPath.item]{
-            featuredCarsController?.showCarDetailForCar(car: car)
-        }
     }
 }

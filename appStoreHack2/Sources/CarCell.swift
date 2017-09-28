@@ -19,13 +19,13 @@ class CarCell: UICollectionViewCell {
         super.init(frame: frame)
 
         self.backgroundColor = UIColor(white: 0.9, alpha: 0.4)
-        self.addSubview(self.nameLabel)
+        self.contentView.addSubview(self.nameLabel)
 
         NSLayoutConstraint.activate([
-            self.nameLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            self.nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            self.nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10.0),
-            self.nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10.0),
+            self.nameLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            self.nameLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+            self.nameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10.0),
+            self.nameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10.0),
             ])
     }
 

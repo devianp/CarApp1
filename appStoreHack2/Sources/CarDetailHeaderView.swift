@@ -1,7 +1,7 @@
 
 import UIKit
 
-class CarDetailHeader: UICollectionViewCell {
+class CarDetailHeaderView: UICollectionReusableView {
 
     var car: Car? {
         didSet {

@@ -26,19 +26,19 @@ class TopCarCell: UICollectionViewCell {
 
         super.init(frame: frame)
 
-        self.addSubview(self.imageView)
-        self.addSubview(self.nameLabel)
+        self.contentView.addSubview(self.imageView)
+        self.contentView.addSubview(self.nameLabel)
 
         NSLayoutConstraint.activate([
-            self.imageView.topAnchor.constraint(equalTo: self.topAnchor),
+            self.imageView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
             self.imageView.bottomAnchor.constraint(equalTo: self.nameLabel.topAnchor),
-            self.imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.imageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            self.imageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
 
-            self.nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            self.nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.nameLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3),
+            self.nameLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+            self.nameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            self.nameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            self.nameLabel.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.3),
             ])
     }
 
