@@ -1,16 +1,16 @@
 
 import UIKit
 
-class TopAppCell: UICollectionViewCell {
+class TopCarCell: UICollectionViewCell {
 
     // test 3
-    var app: App? {
+    var car: Car? {
         didSet {
-            if let name = app?.name {
+            if let name = car?.name {
                 textView.text = name
             }
 
-            if let imageName = app?.imageName {
+            if let imageName = car?.imageName {
                 imageView.image = UIImage(named: imageName)
             }
 

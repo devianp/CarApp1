@@ -1,11 +1,11 @@
 
 import UIKit
 
-class AppDetailController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class CarDetailController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    var app: App? {
+    var car: Car? {
         didSet {
-            navigationItem.title = app?.name
+            navigationItem.title = car?.name
         }
 
     }
@@ -19,14 +19,14 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
         
         collectionView?.backgroundColor = UIColor.white
         
-        collectionView?.register(AppDetailHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
+        collectionView?.register(CarDetailHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! AppDetailHeader
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! CarDetailHeader
         
-        header.app = app
+        header.car = car
         
         return header
     }

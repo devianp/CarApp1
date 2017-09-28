@@ -1,17 +1,17 @@
 
 import UIKit
 
-class AppDetailHeader: BaseCell {
+class CarDetailHeader: BaseCell {
 
-    var app: App? {
+    var car: Car? {
         didSet {
-            if let imageName = app?.imageName {
+            if let imageName = car?.imageName {
                 imageView.image = UIImage(named: imageName)
 
             }
 
             // can change this to model description by adding to category cells
-            nameLabel.text = app?.name
+            nameLabel.text = car?.name
         }
     }
 

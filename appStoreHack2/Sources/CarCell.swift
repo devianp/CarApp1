@@ -1,11 +1,11 @@
 
 import UIKit
 
-class AppCell: UICollectionViewCell {
+class CarCell: UICollectionViewCell {
 
-    var app: App? {
+    var car: Car? {
         didSet {
-            nameLabel.text = app?.name
+            nameLabel.text = car?.name
         }
     }
 

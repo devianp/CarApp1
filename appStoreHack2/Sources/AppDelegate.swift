@@ -13,8 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         let layout = UICollectionViewFlowLayout()
-        let featuredAppsController = FeaturedAppsController(collectionViewLayout: layout)
-        window?.rootViewController = UINavigationController(rootViewController: featuredAppsController)
+        let featuredCarsController = FeaturedCarsController(collectionViewLayout: layout)
+        window?.rootViewController = UINavigationController(rootViewController: featuredCarsController)
         
         return true
     }

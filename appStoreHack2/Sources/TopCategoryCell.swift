@@ -4,13 +4,13 @@ import UIKit
 // create new cell using
 class TopCategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
     
-    var featuredAppsController: FeaturedAppsController?
+    var featuredCarsController: FeaturedCarsController?
 
     
     //test 2
-    var appCategory: AppCategory? {
+    var carCategory: CarCategory? {
         didSet {
-            if let name = appCategory?.name {
+            if let name = carCategory?.name {
                 nameLabel.text = name
             }
         }
@@ -18,7 +18,7 @@ class TopCategoryCell: UICollectionViewCell, UICollectionViewDataSource, UIColle
     
     
     
-    private let topCellId = "appCellId"
+    private let topCellId = "carCellId"
 
     
     override init(frame: CGRect) {
@@ -43,7 +43,7 @@ class TopCategoryCell: UICollectionViewCell, UICollectionViewDataSource, UIColle
 
     
     
-    let appsCollectionView: UICollectionView = {
+    let carsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
@@ -73,25 +73,25 @@ class TopCategoryCell: UICollectionViewCell, UICollectionViewDataSource, UIColle
     func setupViews() {
         backgroundColor = UIColor(white: 0.9, alpha: 0.4)
         
-        addSubview(appsCollectionView)
+        addSubview(carsCollectionView)
         addSubview(nameLabel)
         
         // test page control
         addSubview(pageControl)
 
         
-        appsCollectionView.dataSource = self
-        appsCollectionView.delegate = self
+        carsCollectionView.dataSource = self
+        carsCollectionView.delegate = self
         
         // add app cell to collection view
-        appsCollectionView.register(TopAppCell.self, forCellWithReuseIdentifier: topCellId)
+        carsCollectionView.register(TopCarCell.self, forCellWithReuseIdentifier: topCellId)
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-14-[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appsCollectionView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": carsCollectionView]))
 
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[nameLabel(30)][v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appsCollectionView, "nameLabel": nameLabel]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[nameLabel(30)][v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": carsCollectionView, "nameLabel": nameLabel]))
         
         pageControl.anchorToTop(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
 
@@ -101,15 +101,15 @@ class TopCategoryCell: UICollectionViewCell, UICollectionViewDataSource, UIColle
     // how many cells to return
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let count = appCategory?.apps?.count {
+        if let count = carCategory?.cars?.count {
             return count
         }
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: topCellId, for: indexPath) as! TopAppCell
-        cell.app = appCategory?.apps?[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: topCellId, for: indexPath) as! TopCarCell
+        cell.car = carCategory?.cars?[indexPath.item]
         return cell
     }
     
@@ -132,8 +132,8 @@ class TopCategoryCell: UICollectionViewCell, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let app = appCategory?.apps?[indexPath.item]{
-            featuredAppsController?.showAppDetailForApp(app: app)
+        if let car = carCategory?.cars?[indexPath.item]{
+            featuredCarsController?.showCarDetailForCar(car: car)
         }
     }
     

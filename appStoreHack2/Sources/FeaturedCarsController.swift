@@ -1,7 +1,7 @@
 
 import UIKit
 
-class FeaturedAppsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class FeaturedCarsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     
     private let cellId = "cellId"
@@ -11,11 +11,11 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
 
     
     // create a way to power collection view by number of categories
-    var appCategories: [AppCategory]?
+    var carCategories: [CarCategory]?
     
     
     // test 1
-    var topAppCategories: [AppCategory]?
+    var topCarCategories: [CarCategory]?
 
    
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         // change title at top
         navigationItem.title = "Home"
         
-        appCategories = AppCategory.sampleAppCategories()
+        carCategories = CarCategory.sampleCarCategories()
 
         collectionView?.backgroundColor = .white
         
@@ -40,12 +40,12 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
 //        
 //    }
     
-    func showAppDetailForApp(app: App) {
+    func showCarDetailForCar(car: Car) {
         // dummy view controller for now
         let layout = UICollectionViewFlowLayout()
-        let appDetailController = AppDetailController(collectionViewLayout: layout)
-        appDetailController.app = app
-        navigationController?.pushViewController(appDetailController, animated: true)
+        let carDetailController = CarDetailController(collectionViewLayout: layout)
+        carDetailController.car = car
+        navigationController?.pushViewController(carDetailController, animated: true)
         print("selected")
     }
 
@@ -55,22 +55,22 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         if indexPath.item == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: topCellId, for: indexPath) as! TopCategoryCell
             
-            cell.appCategory = appCategories?[indexPath.item]
-            cell.featuredAppsController = self
+            cell.carCategory = carCategories?[indexPath.item]
+            cell.featuredCarsController = self
 
             return cell
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CategoryCell
         
-        cell.appCategory = appCategories?[indexPath.item]
-        cell.featuredAppsController = self
+        cell.carCategory = carCategories?[indexPath.item]
+        cell.featuredCarsController = self
         return cell
         
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let count = appCategories?.count {
+        if let count = carCategories?.count {
             return count
         }
         return 0
