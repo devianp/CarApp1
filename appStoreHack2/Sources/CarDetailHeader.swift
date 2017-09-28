@@ -1,16 +1,13 @@
 
 import UIKit
 
-class CarDetailHeader: BaseCell {
+class CarDetailHeader: UICollectionViewCell {
 
     var car: Car? {
         didSet {
             if let imageName = car?.imageName {
                 imageView.image = UIImage(named: imageName)
-
             }
-
-            // can change this to model description by adding to category cells
             nameLabel.text = car?.name
         }
     }
@@ -22,7 +19,6 @@ class CarDetailHeader: BaseCell {
         return iv
     }()
 
-    // could rename to model description
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "TEST"
@@ -30,10 +26,8 @@ class CarDetailHeader: BaseCell {
         return label
     }()
 
-    override func setupViews() {
-        super.setupViews()
-
-        //        backgroundColor = UIColor.blue
+    override init(frame: CGRect) {
+        super.init(frame: frame)
 
         addSubview(imageView)
         addSubview(nameLabel)
@@ -47,8 +41,9 @@ class CarDetailHeader: BaseCell {
 
         addConstraintsWithFormat(format: "H:|-15-[v0]-15-|", views: nameLabel)
         addConstraintsWithFormat(format: "V:[v0(34)]-8-|", views: nameLabel)
-
-
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
 }

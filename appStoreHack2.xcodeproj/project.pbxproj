@@ -8,12 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A7C5F6331F7D30D500810EB8 /* CarDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C5F6321F7D30D500810EB8 /* CarDetailHeader.swift */; };
-		A7C5F6351F7D30E700810EB8 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C5F6341F7D30E700810EB8 /* BaseCell.swift */; };
 		A7C5F6371F7D311200810EB8 /* CarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C5F6361F7D311200810EB8 /* CarCell.swift */; };
 		A7C5F6391F7D317600810EB8 /* TopCarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C5F6381F7D317600810EB8 /* TopCarCell.swift */; };
 		A7C5F63B1F7D319D00810EB8 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C5F63A1F7D319D00810EB8 /* UIColor.swift */; };
 		A7C5F63D1F7D31CE00810EB8 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C5F63C1F7D31CE00810EB8 /* Car.swift */; };
-		A7C5F63F1F7D322300810EB8 /* LargeCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C5F63E1F7D322300810EB8 /* LargeCategoryCell.swift */; };
 		D710D9961ED1FBE700A71E25 /* CarDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D710D9951ED1FBE700A71E25 /* CarDetailController.swift */; };
 		D7AF78741EC6623C003384EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF78731EC6623C003384EC /* AppDelegate.swift */; };
 		D7AF78761EC6623C003384EC /* FeaturedCarsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF78751EC6623C003384EC /* FeaturedCarsController.swift */; };
@@ -21,19 +19,16 @@
 		D7AF787E1EC6623D003384EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7AF787C1EC6623D003384EC /* LaunchScreen.storyboard */; };
 		D7AF78861EC66A2A003384EC /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF78851EC66A2A003384EC /* CategoryCell.swift */; };
 		D7AF78881ECA3DC7003384EC /* CarCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF78871ECA3DC7003384EC /* CarCategory.swift */; };
-		D7C2C6D71ECCD7A5001761BC /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C2C6D61ECCD7A5001761BC /* MenuBar.swift */; };
 		D7C2C6D91ECCDA79001761BC /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C2C6D81ECCDA79001761BC /* UIView.swift */; };
 		D7C2C6DB1ECCE924001761BC /* TopCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C2C6DA1ECCE924001761BC /* TopCategoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A7C5F6321F7D30D500810EB8 /* CarDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailHeader.swift; sourceTree = "<group>"; };
-		A7C5F6341F7D30E700810EB8 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		A7C5F6361F7D311200810EB8 /* CarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCell.swift; sourceTree = "<group>"; };
 		A7C5F6381F7D317600810EB8 /* TopCarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCarCell.swift; sourceTree = "<group>"; };
 		A7C5F63A1F7D319D00810EB8 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		A7C5F63C1F7D31CE00810EB8 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
-		A7C5F63E1F7D322300810EB8 /* LargeCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryCell.swift; sourceTree = "<group>"; };
 		D710D9951ED1FBE700A71E25 /* CarDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDetailController.swift; sourceTree = "<group>"; };
 		D7AF78701EC6623C003384EC /* appStoreHack2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appStoreHack2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AF78731EC6623C003384EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +38,6 @@
 		D7AF787F1EC6623D003384EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7AF78851EC66A2A003384EC /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		D7AF78871ECA3DC7003384EC /* CarCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCategory.swift; sourceTree = "<group>"; };
-		D7C2C6D61ECCD7A5001761BC /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		D7C2C6D81ECCDA79001761BC /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D7C2C6DA1ECCE924001761BC /* TopCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopCategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				D7AF78731EC6623C003384EC /* AppDelegate.swift */,
-				A7C5F6341F7D30E700810EB8 /* BaseCell.swift */,
 				A7C5F63C1F7D31CE00810EB8 /* Car.swift */,
 				D7AF78871ECA3DC7003384EC /* CarCategory.swift */,
 				A7C5F6361F7D311200810EB8 /* CarCell.swift */,
@@ -71,8 +64,6 @@
 				A7C5F6321F7D30D500810EB8 /* CarDetailHeader.swift */,
 				D7AF78851EC66A2A003384EC /* CategoryCell.swift */,
 				D7AF78751EC6623C003384EC /* FeaturedCarsController.swift */,
-				A7C5F63E1F7D322300810EB8 /* LargeCategoryCell.swift */,
-				D7C2C6D61ECCD7A5001761BC /* MenuBar.swift */,
 				A7C5F6381F7D317600810EB8 /* TopCarCell.swift */,
 				D7C2C6DA1ECCE924001761BC /* TopCategoryCell.swift */,
 				A7C5F63A1F7D319D00810EB8 /* UIColor.swift */,
@@ -192,9 +183,6 @@
 				A7C5F6371F7D311200810EB8 /* CarCell.swift in Sources */,
 				D7AF78881ECA3DC7003384EC /* CarCategory.swift in Sources */,
 				A7C5F63B1F7D319D00810EB8 /* UIColor.swift in Sources */,
-				A7C5F63F1F7D322300810EB8 /* LargeCategoryCell.swift in Sources */,
-				A7C5F6351F7D30E700810EB8 /* BaseCell.swift in Sources */,
-				D7C2C6D71ECCD7A5001761BC /* MenuBar.swift in Sources */,
 				A7C5F6391F7D317600810EB8 /* TopCarCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

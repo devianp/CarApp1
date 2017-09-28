@@ -3,28 +3,15 @@ import UIKit
 
 class TopCarCell: UICollectionViewCell {
 
-    // test 3
     var car: Car? {
         didSet {
             if let name = car?.name {
                 textView.text = name
             }
-
             if let imageName = car?.imageName {
                 imageView.image = UIImage(named: imageName)
             }
-
         }
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     let imageView: UIImageView = {
@@ -36,35 +23,31 @@ class TopCarCell: UICollectionViewCell {
         return iv
     }()
 
-
-    // use namelabel in app store
     let textView: UITextView = {
         let tv = UITextView()
         tv.text = "Sample"
         tv.isEditable = false
         tv.font = UIFont.systemFont(ofSize: 14)
         tv.textAlignment = .center
-
-        // push text down
         tv.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         tv.backgroundColor = UIColor(red: 242/255, green: 241/255, blue: 239/255, alpha: 1)
         return tv
     }()
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
 
-    func setupViews() {
         backgroundColor = UIColor.red
 
         addSubview(imageView)
         addSubview(textView)
 
-        //        imageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.width)
-
         imageView.anchorToTop(topAnchor, left: leftAnchor, bottom: textView.topAnchor, right: rightAnchor)
-
         textView.anchorToTop(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
         textView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActive = true
-
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
 }

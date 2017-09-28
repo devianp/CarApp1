@@ -9,15 +9,6 @@ class CarCell: UICollectionViewCell {
         }
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Porsche 2"
@@ -26,16 +17,17 @@ class CarCell: UICollectionViewCell {
         return label
     }()
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
 
-    func setupViews() {
         addSubview(nameLabel)
 
         backgroundColor = UIColor(white: 0.9, alpha: 0.4)
 
         nameLabel.frame = CGRect(x: 10, y: 0, width: frame.width, height: frame.height)
-
-
-
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
 }
