@@ -1,10 +1,3 @@
-//
-//  Models.swift
-//  appStoreHack2
-//
-//  Created by Devian Patel on 15/05/2017.
-//  Copyright © 2017 Devian Patel. All rights reserved.
-//
 
 import UIKit
 
@@ -142,15 +135,3 @@ class AppCategory: NSObject {
     }
     
 }
-
-
-// what is an app: will be a car
-class App: NSObject {
-    var name: String?
-    var id: NSNumber?
-    var category: String?
-    
-    // test 1
-    var imageName: String?
-}
-

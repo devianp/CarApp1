@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  appStoreHack2
-//
-//  Created by Devian Patel on 12/05/2017.
-//  Copyright © 2017 Devian Patel. All rights reserved.
-//
 
 import UIKit
 
@@ -37,7 +30,7 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         
         collectionView?.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.register(LargeCategoryCell.self, forCellWithReuseIdentifier: largeCellId)
-        collectionView?.register(topCategoryCell.self, forCellWithReuseIdentifier: topCellId)
+        collectionView?.register(TopCategoryCell.self, forCellWithReuseIdentifier: topCellId)
         
 
     }
@@ -60,7 +53,7 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.item == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: topCellId, for: indexPath) as! topCategoryCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: topCellId, for: indexPath) as! TopCategoryCell
             
             cell.appCategory = appCategories?[indexPath.item]
             cell.featuredAppsController = self
@@ -96,17 +89,3 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
 
 
 }
-
-
-
-
-// create different cell for cell 0, subclassing catgeory cell
-
-class LargeCategoryCell: CategoryCell {
-    
-}
-
-
-
-
-

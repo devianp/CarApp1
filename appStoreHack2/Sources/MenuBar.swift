@@ -1,10 +1,3 @@
-//
-//  MenuBar.swift
-//  appStoreHack2
-//
-//  Created by Devian Patel on 17/05/2017.
-//  Copyright © 2017 Devian Patel. All rights reserved.
-//
 
 import UIKit
 
