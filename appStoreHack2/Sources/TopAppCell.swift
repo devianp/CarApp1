@@ -47,7 +47,7 @@ class TopAppCell: UICollectionViewCell {
 
         // push text down
         tv.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
-        tv.backgroundColor = UIColor(colorLiteralRed: 242/255, green: 241/255, blue: 239/255, alpha: 1)
+        tv.backgroundColor = UIColor(red: 242/255, green: 241/255, blue: 239/255, alpha: 1)
         return tv
     }()
 
