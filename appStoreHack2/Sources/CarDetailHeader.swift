@@ -5,45 +5,42 @@ class CarDetailHeader: UICollectionViewCell {
 
     var car: Car? {
         didSet {
-            if let imageName = car?.imageName {
-                imageView.image = UIImage(named: imageName)
-            }
-            nameLabel.text = car?.name
+            self.imageView.image = (self.car?.imageName).flatMap { UIImage(named: $0) }
+            self.nameLabel.text = self.car?.name
         }
     }
 
-    let imageView: UIImageView = {
-        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFill
-        iv.layer.masksToBounds = true
-        return iv
-    }()
-
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "TEST"
-        label.font = UIFont.systemFont(ofSize: 14)
-        return label
-    }()
+    private let imageView: UIImageView
+    private let nameLabel: UILabel
 
     override init(frame: CGRect) {
+        self.imageView = UIImageView(frame: .zero)
+        self.imageView.translatesAutoresizingMaskIntoConstraints = false
+        self.imageView.contentMode = .scaleAspectFill
+        self.imageView.clipsToBounds = true
+
+        self.nameLabel = UILabel(frame: .zero)
+        self.nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.nameLabel.font = .preferredFont(forTextStyle: .body)
+
         super.init(frame: frame)
 
-        addSubview(imageView)
-        addSubview(nameLabel)
+        self.addSubview(self.imageView)
+        self.addSubview(self.nameLabel)
 
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.yellow
+        NSLayoutConstraint.activate([
+            self.imageView.topAnchor.constraint(equalTo: self.topAnchor),
+            self.imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.imageView.heightAnchor.constraint(equalToConstant: 150.0),
 
-        addConstraintsWithFormat(format: "H:|[v0]|", views: imageView)
-        addConstraintsWithFormat(format: "V:|[v0(150)]", views: imageView)
-
-
-        addConstraintsWithFormat(format: "H:|-15-[v0]-15-|", views: nameLabel)
-        addConstraintsWithFormat(format: "V:[v0(34)]-8-|", views: nameLabel)
+            self.nameLabel.topAnchor.constraint(equalTo: self.imageView.bottomAnchor, constant: 8.0),
+            self.nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0),
+            self.nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0),
+            ])
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder decoder: NSCoder) {
         fatalError()
     }
 }

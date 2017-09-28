@@ -5,29 +5,31 @@ class CarCell: UICollectionViewCell {
 
     var car: Car? {
         didSet {
-            nameLabel.text = car?.name
+            self.nameLabel.text = self.car?.name
         }
     }
 
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Porsche 2"
-        label.font = UIFont.systemFont(ofSize: 13)
-        label.numberOfLines = 1
-        return label
-    }()
+    private let nameLabel: UILabel
 
     override init(frame: CGRect) {
+        self.nameLabel = UILabel(frame: .zero)
+        self.nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.nameLabel.font = .preferredFont(forTextStyle: .body)
+
         super.init(frame: frame)
 
-        addSubview(nameLabel)
+        self.backgroundColor = UIColor(white: 0.9, alpha: 0.4)
+        self.addSubview(self.nameLabel)
 
-        backgroundColor = UIColor(white: 0.9, alpha: 0.4)
-
-        nameLabel.frame = CGRect(x: 10, y: 0, width: frame.width, height: frame.height)
+        NSLayoutConstraint.activate([
+            self.nameLabel.topAnchor.constraint(equalTo: self.topAnchor),
+            self.nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            self.nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10.0),
+            self.nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10.0),
+            ])
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder decoder: NSCoder) {
         fatalError()
     }
 }
